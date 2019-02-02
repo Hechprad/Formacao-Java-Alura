@@ -10,17 +10,18 @@ import java.util.List;
  * Classe criada para testar os alunos e métodos das coleções, utilizando SET e
  * HashSet (interface irmã de LIST e filha de COLLECTIONS). VANTAGENS: - SETs
  * garantem que só exista um único elemento igual no conjunto - Velocidade de
- * uso desta coleção
+ * uso desta coleção.
  * 
  * @author Hech
  */
 public class TestaAlunos {
 
 	public static void main(String[] args) {
-		// Utilizando SET, "irmã" de LIST para a criação de alunos
-		// Set<String> alunos = new HashSet<>(); 
-		// HashSet implementa o SET que é filha do Collection
-		// Então podemos declarar de maneira mais genérica:
+		/** Utilizando SET, "irmã" de LIST para a criação de alunos
+		 * Set<String> alunos = new HashSet<>(); 
+		 * HashSet implementa o SET que é filha do Collection
+		 * Então podemos declarar de maneira mais genérica:
+		 */
 		Collection<String> alunos = new HashSet<>();
 		
 		// adicionando nome de novos alunos
@@ -44,8 +45,9 @@ public class TestaAlunos {
 		// Removendo um elemento do SET
 		alunos.remove("Sergio Lopes");
 
-		// ----> método "contains" e "remove" são muito mais rápidos quando
-		// vc utiliza "SETs", pq ele utiliza o "HASHSET" (em pt: tabela de espalhamento "hash")
+		/** ----> método "contains" e "remove" são muito mais rápidos quando
+		 * vc utiliza "SETs", pq ele utiliza o "HASHSET" (em pt: tabela de espalhamento "hash")
+		 */
 
 		// Observe a saída fora de ordem do sysout:
 		System.out.println(alunos);

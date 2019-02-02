@@ -95,4 +95,9 @@ public class Curso {
 	public Set<Aluno> getAlunos() {
 		return Collections.unmodifiableSet(alunos);
 	}
+
+	// Verifica se um aluno já está cadastrado em um curso
+	public boolean estaMatriculado(Aluno aluno) {
+		return this.alunos.contains(aluno);
+	}
 }

@@ -28,9 +28,9 @@ public class TestaCurso {
 		// getAulas
 */		
 		// Adicionando aulas com o novo método "Adiciona" da classe Curso
-		javaColecoes.Adiciona(new Aula("Trabalhando com ArrayList", 21));
-		javaColecoes.Adiciona(new Aula("Criando uma Aula", 20));
-		javaColecoes.Adiciona(new Aula("Modelando com coleções", 22));
+		javaColecoes.adiciona(new Aula("Trabalhando com ArrayList", 21));
+		javaColecoes.adiciona(new Aula("Criando uma Aula", 20));
+		javaColecoes.adiciona(new Aula("Modelando com coleções", 22));
 		
 		List<Aula> aulas = javaColecoes.getAulas();
 

@@ -21,9 +21,9 @@ public class TestaCurso2 {
 		Curso javaColecoes = new Curso("Dominando Java", "Paulo Silveira");
 
 		// Adicionando aulas com o novo método "Adiciona" da classe Curso
-		javaColecoes.Adiciona(new Aula("Trabalhando com ArrayList", 21));
-		javaColecoes.Adiciona(new Aula("Criando uma Aula", 20));
-		javaColecoes.Adiciona(new Aula("Modelando com coleções", 24));
+		javaColecoes.adiciona(new Aula("Trabalhando com ArrayList", 21));
+		javaColecoes.adiciona(new Aula("Criando uma Aula", 20));
+		javaColecoes.adiciona(new Aula("Modelando com coleções", 24));
 
 		List<Aula> aulasImutaveis = javaColecoes.getAulas();
 		System.out.println(aulasImutaveis);

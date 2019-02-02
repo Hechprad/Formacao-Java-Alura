@@ -3,8 +3,11 @@ package br.com.alura;
 //Bibliotecas importadas para uso de métodos na classe
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
@@ -25,8 +28,11 @@ public class Curso {
 	 */
 	private List<Aula> aulas = new ArrayList<Aula>(); // Aulas que contém em um curso
 	private Set<Aluno> alunos = new HashSet<>(); // Alunos que estão matrículados em um curso
-	//private Set<Aluno> alunos = new LinkedHashSet<>(); // Respeita a ordem adicionada dos alunos
-	
+	// private Set<Aluno> alunos = new LinkedHashSet<>(); // Respeita a ordem
+	// adicionada dos alunos
+	// Aula 10 - Java coleções, MAPAS
+	private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>();
+
 	// CTRL+3 (Quick Access) Generate Construtors using Fields
 	public Curso(String nome, String instrutor) { // Definição de elementos da classe aula
 		this.nome = nome;
@@ -52,12 +58,12 @@ public class Curso {
 	}
 
 	// Método da classe "Curso" para adicionar uma aula
-	public void Adiciona(Aula aula) {
+	public void adiciona(Aula aula) {
 		this.aulas.add(aula);
 	}
 
 	// Método da classe "Curso" para remover uma aula
-	public void Remova(Aula aula) {
+	public void remova(Aula aula) {
 		this.aulas.remove(aula);
 	}
 
@@ -78,18 +84,19 @@ public class Curso {
 	// ao nosso programa
 	@Override
 	public String toString() {
-		// Retorna o nome do curso, o tempo total e chama o "toString" do 
+		// Retorna o nome do curso, o tempo total e chama o "toString" do
 		// objeto tipo aula "this.aulas" que é reescrito e apresenta o nome de
 		// cada aula e sua duração.
-		return "[Curso: " + nome + ", tempo total: " + this.getTempoTotal() + 
-				" minutos: " + this.aulas + "]";
+		return "[Curso: " + nome + ", tempo total: " + this.getTempoTotal() + " minutos: " + this.aulas + "]";
 	}
 
 	// Adiciona um novo aluno à variável "Set<Aluno> alunos"
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
+		// associando novos alunos ao "MAP"
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
 	}
-	
+
 	// Envia um "Set" unmodifiable, que não pode ser modificado.
 	// Programação defenciva, valores encapsulados.
 	public Set<Aluno> getAlunos() {
@@ -99,5 +106,13 @@ public class Curso {
 	// Verifica se um aluno já está cadastrado em um curso
 	public boolean estaMatriculado(Aluno aluno) {
 		return this.alunos.contains(aluno);
+	}
+
+	// Realiza a busca de alunos cadastrados por meio do número de matrícula
+	public Aluno buscaMatriculado(int numero) {
+		if (!matriculaParaAluno.containsKey(numero)) { // Caso não encontre o número, retorna null
+			throw new NoSuchElementException("Número de matrícula não encontrado.");
+		}
+		return matriculaParaAluno.get(numero);
 	}
 }

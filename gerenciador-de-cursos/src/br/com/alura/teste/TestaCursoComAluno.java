@@ -1,5 +1,7 @@
 package br.com.alura.teste;
 
+import java.util.Iterator;
+import java.util.Set;
 import br.com.alura.Aluno;
 import br.com.alura.Aula;
 import br.com.alura.Curso;
@@ -31,16 +33,33 @@ public class TestaCursoComAluno {
 		javaColecoes.matricula(a2);
 		javaColecoes.matricula(a3);
 		
+		System.out.println("-----Mostrando alunos com foreach e lambda-----");
 		//mostrando cada aluno com "foreach" e lambda
 		System.out.println("Todos os alunos matriculados: ");
 		javaColecoes.getAlunos().forEach(a -> {
 			System.out.println(a);
 		});
 		
+		// Entendendo "iterators"
+		System.out.println("-----Iterators-----");
+		Set<Aluno> alunos = javaColecoes.getAlunos();
+		Iterator<Aluno> iterator = alunos.iterator();
+		/**
+		 * Iterator possui dois métodos mais utilizados:
+		 * iterator.hasNext(); // Tem próximo?
+		 * iterator.next(); // Devolve o próximo
+		 */
+		while(iterator.hasNext()) {
+			Aluno proximo = iterator.next();
+			System.out.println(proximo);
+		}
+		
+		System.out.println("-----Verificando matrícula-----");
 		// Verificando se um aluno está matriculado
 		System.out.println("O aluno " + a1 + " está matriculado?");
 		System.out.println(javaColecoes.estaMatriculado(a1));
 		
+		System.out.println("-----Testando 'equals()' e 'hashCode' reescritos-----");
 		//testando "equals()" reescrito com o "hashCode() também reescrito"
 		Aluno turini = new Aluno("Rodrigo Turini", 34672);
 		System.out.println("E este Turini, está matriculado?");

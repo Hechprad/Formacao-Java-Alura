@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.IntStream;
 
 /**
  * Classe Curso para testar relacionamento com outras classes.
@@ -26,6 +25,7 @@ public class Curso {
 	 */
 	private List<Aula> aulas = new ArrayList<Aula>(); // Aulas que contém em um curso
 	private Set<Aluno> alunos = new HashSet<>(); // Alunos que estão matrículados em um curso
+	//private Set<Aluno> alunos = new LinkedHashSet<>(); // Respeita a ordem adicionada dos alunos
 	
 	// CTRL+3 (Quick Access) Generate Construtors using Fields
 	public Curso(String nome, String instrutor) { // Definição de elementos da classe aula
